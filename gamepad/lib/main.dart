@@ -35,6 +35,29 @@ class _SpiderState extends State<Spider> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      /*child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          ElevatedButton(
+            onPressed: () {},
+            child: Text("Привет"),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: Image.asset('assets/png/ultrasonic.png'),
+            iconSize: 500,
+          ),
+          ElevatedButton(onPressed: () {}, child: Text("data"))
+        ],
+      ),
+    );*/
+      body: Padding(
+        padding: EdgeInsets.all(150),
+        child: ElevatedButton(
+          onPressed: () {},
+          child: Icon(Icons.abc),
+        ),
+      ),
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
@@ -44,8 +67,9 @@ class _SpiderState extends State<Spider> {
           Navigator.of(context).pushNamed('/Ultrasonic');
         },
         tooltip: 'Ultrasonic',
-        child: const Icon(Icons.find_in_page),
+        child: Image.asset('assets/png/ultrasonic.png'),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }
@@ -57,28 +81,13 @@ class Ultrasonic extends StatefulWidget {
   State<Ultrasonic> createState() => _UltrasonicState();
 }
 
-class _UltrasonicState extends State<Ultrasonic>
-    with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = AnimationController(vsync: this);
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
+class _UltrasonicState extends State<Ultrasonic> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          title: Text("Ultrasonic range finder")),
+        title: Text("Ultrasonic range finder"),
+      ),
     );
   }
 }
