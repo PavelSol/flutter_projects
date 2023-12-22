@@ -118,8 +118,10 @@ class _JoystickExampleState extends State<JoystickExample> {
                 mode: _joystickMode,
                 listener: (details) {
                   setState(() {
-                    _x = _x + step * details.x;
-                    _y = _y + step * details.y;
+                    print(details.x * 100);
+                    print(details.y * 100);
+                    //_x = _x + step * details.x;
+                    //_y = _y + step * details.y;
                   });
                 },
               ),
