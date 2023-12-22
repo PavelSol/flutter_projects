@@ -5,21 +5,21 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "gamepad",
-            "cwd": "gamepad",
+            "name": "spidjo",
+            "cwd": "spidjo",
             "request": "launch",
             "type": "dart"
         },
         {
-            "name": "gamepad (profile mode)",
-            "cwd": "gamepad",
+            "name": "spidjo (profile mode)",
+            "cwd": "spidjo",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
-            "name": "gamepad (release mode)",
-            "cwd": "gamepad",
+            "name": "spidjo (release mode)",
+            "cwd": "spidjo",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"
