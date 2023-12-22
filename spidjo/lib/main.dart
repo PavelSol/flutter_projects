@@ -34,7 +34,7 @@ class MainPage extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          ElevatedButton(
+          /*ElevatedButton(
             onPressed: () {
               Navigator.push(
                 context,
@@ -64,6 +64,7 @@ class MainPage extends StatelessWidget {
             },
             child: const Text('Square Joystick'),
           ),
+        */
         ],
       ),
     );
@@ -94,7 +95,7 @@ class _JoystickExampleState extends State<JoystickExample> {
       backgroundColor: Colors.green,
       appBar: AppBar(
         title: const Text('Joystick'),
-        actions: [
+        /*actions: [
           JoystickModeDropdown(
             mode: _joystickMode,
             onChanged: (JoystickMode value) {
@@ -103,7 +104,7 @@ class _JoystickExampleState extends State<JoystickExample> {
               });
             },
           ),
-        ],
+        ],*/
       ),
       body: SafeArea(
         child: Stack(
@@ -111,11 +112,11 @@ class _JoystickExampleState extends State<JoystickExample> {
             Container(
               color: Colors.green,
             ),
-            Ball(_x, _y),
+            //Ball(_x, _y),
             Align(
               alignment: const Alignment(0, 0.8),
               child: Joystick(
-                mode: _joystickMode,
+                mode: JoystickMode.all,
                 listener: (details) {
                   setState(() {
                     print(details.x * 100);
@@ -133,7 +134,7 @@ class _JoystickExampleState extends State<JoystickExample> {
   }
 }
 
-class JoystickAreaExample extends StatefulWidget {
+/*class JoystickAreaExample extends StatefulWidget {
   const JoystickAreaExample({Key? key}) : super(key: key);
 
   @override
@@ -322,4 +323,4 @@ class Ball extends StatelessWidget {
       ),
     );
   }
-}
+}*/
