@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_joystick/flutter_joystick.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,6 +11,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.landscapeLeft,
+    ]);
     return MaterialApp(
       title: 'Spider-robot joystick',
       theme: ThemeData(
@@ -40,10 +44,12 @@ class _JoystickExampleState extends State<JoystickExample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      persistentFooterAlignment: AlignmentDirectional.bottomStart,
       backgroundColor: Colors.grey,
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 120, 0, 209),
         title: const Text('Spider-robot Joystick'),
+        toolbarHeight: 20,
       ),
       body: SafeArea(
         child: Stack(
@@ -52,7 +58,7 @@ class _JoystickExampleState extends State<JoystickExample> {
               color: Colors.grey,
             ),
             Align(
-              alignment: const Alignment(0, 0.8),
+              alignment: const Alignment(-0.9, 0.5),
               child: Joystick(
                 listener: (details) {
                   setState(() {
@@ -60,6 +66,7 @@ class _JoystickExampleState extends State<JoystickExample> {
                     print(details.y * 1000);
                   });
                 },
+                mode: JoystickMode.vertical,
               ),
             ),
           ],
