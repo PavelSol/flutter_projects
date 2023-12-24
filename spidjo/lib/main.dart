@@ -28,19 +28,19 @@ class MyApp extends StatelessWidget {
                 fontSize: 20,
                 fontWeight: FontWeight.w700,
               ))),
-      home: const JoystickExample(),
+      home: const MainScreen(),
     );
   }
 }
 
-class JoystickExample extends StatefulWidget {
-  const JoystickExample({Key? key}) : super(key: key);
+class MainScreen extends StatefulWidget {
+  const MainScreen({Key? key}) : super(key: key);
 
   @override
-  State<JoystickExample> createState() => _JoystickExampleState();
+  State<MainScreen> createState() => _MainScreenState();
 }
 
-class _JoystickExampleState extends State<JoystickExample> {
+class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,7 +49,7 @@ class _JoystickExampleState extends State<JoystickExample> {
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 120, 0, 209),
         title: const Text('Spider-robot Joystick'),
-        toolbarHeight: 20,
+        toolbarHeight: 40,
       ),
       body: SafeArea(
         child: Stack(
@@ -58,7 +58,7 @@ class _JoystickExampleState extends State<JoystickExample> {
               color: Colors.grey,
             ),
             Align(
-              alignment: const Alignment(-0.9, 0.5),
+              alignment: const Alignment(-1, 0),
               child: Joystick(
                 listener: (details) {
                   setState(() {
@@ -69,6 +69,25 @@ class _JoystickExampleState extends State<JoystickExample> {
                 mode: JoystickMode.vertical,
               ),
             ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Joystick(
+                      listener: (details) {
+                        setState(() {
+                          print(details.x * 1000);
+                          print(details.y * 1000);
+                        });
+                      },
+                      mode: JoystickMode.horizontal,
+                    )
+                  ],
+                )
+              ],
+            )
           ],
         ),
       ),
