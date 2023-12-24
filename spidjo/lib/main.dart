@@ -57,24 +57,39 @@ class _MainScreenState extends State<MainScreen> {
             Container(
               color: Colors.grey,
             ),
-            Align(
-              alignment: const Alignment(-1, 0),
-              child: Joystick(
-                listener: (details) {
-                  setState(() {
-                    print(details.x * 1000);
-                    print(details.y * 1000);
-                  });
-                },
-                mode: JoystickMode.vertical,
-              ),
-            ),
             Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
+                    Joystick(
+                      listener: (details) {
+                        setState(() {
+                          print(details.x * 1000);
+                          print(details.y * 1000);
+                        });
+                      },
+                      mode: JoystickMode.vertical,
+                    ),
+                    ElevatedButton(
+                      onPressed: () {},
+                      style: const ButtonStyle(
+                        backgroundColor:
+                            MaterialStatePropertyAll<Color>(Colors.blueGrey),
+                        minimumSize: MaterialStatePropertyAll(Size(75, 120)),
+                      ),
+                      child: const Text("data"),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {},
+                      style: const ButtonStyle(
+                        backgroundColor:
+                            MaterialStatePropertyAll<Color>(Colors.blueGrey),
+                        minimumSize: MaterialStatePropertyAll(Size(75, 120)),
+                      ),
+                      child: const Text("data1"),
+                    ),
                     Joystick(
                       listener: (details) {
                         setState(() {
@@ -84,6 +99,20 @@ class _MainScreenState extends State<MainScreen> {
                       },
                       mode: JoystickMode.horizontal,
                     )
+                  ],
+                )
+              ],
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {},
+                      child: const Text("Ultrasonic"),
+                    ),
                   ],
                 )
               ],
