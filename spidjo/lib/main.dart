@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_joystick/flutter_joystick.dart';
 import 'package:flutter/services.dart';
+import 'ultrasonic.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,7 +29,10 @@ class MyApp extends StatelessWidget {
                 fontSize: 20,
                 fontWeight: FontWeight.w700,
               ))),
-      home: const MainScreen(),
+      routes: {
+        '/': (context) => MainScreen(),
+        '/ultrasonic': (context) => Ultrasonic()
+      },
     );
   }
 }
@@ -72,23 +76,39 @@ class _MainScreenState extends State<MainScreen> {
                       },
                       mode: JoystickMode.vertical,
                     ),
-                    ElevatedButton(
+                    ElevatedButton.icon(
                       onPressed: () {},
                       style: const ButtonStyle(
                         backgroundColor:
                             MaterialStatePropertyAll<Color>(Colors.blueGrey),
                         minimumSize: MaterialStatePropertyAll(Size(75, 120)),
                       ),
-                      child: const Text("data"),
+                      icon: const Icon(
+                        Icons.arrow_circle_left,
+                        color: Colors.white,
+                        size: 40,
+                      ),
+                      label: const Text(
+                        "Rotate",
+                        style: TextStyle(color: Colors.white, fontSize: 20),
+                      ),
                     ),
-                    ElevatedButton(
+                    ElevatedButton.icon(
                       onPressed: () {},
                       style: const ButtonStyle(
                         backgroundColor:
                             MaterialStatePropertyAll<Color>(Colors.blueGrey),
                         minimumSize: MaterialStatePropertyAll(Size(75, 120)),
                       ),
-                      child: const Text("data1"),
+                      icon: const Icon(
+                        Icons.arrow_circle_right,
+                        color: Colors.white,
+                        size: 40,
+                      ),
+                      label: const Text(
+                        "Rotate",
+                        style: TextStyle(color: Colors.white, fontSize: 20),
+                      ),
                     ),
                     Joystick(
                       listener: (details) {
@@ -110,7 +130,13 @@ class _MainScreenState extends State<MainScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => Ultrasonic(),
+                          ),
+                        );
+                      },
                       child: const Text("Ultrasonic"),
                     ),
                   ],
