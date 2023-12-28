@@ -14,7 +14,7 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       persistentFooterAlignment: AlignmentDirectional.bottomStart,
-      backgroundColor: Colors.grey,
+      backgroundColor: Colors.green,
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 120, 0, 209),
         title: const Text('Spider-robot Joystick'),
