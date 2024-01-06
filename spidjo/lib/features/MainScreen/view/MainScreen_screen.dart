@@ -26,86 +26,137 @@ class _MainScreenState extends State<MainScreen> {
             Container(
               color: Colors.grey,
             ),
-            Column(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Joystick(
-                      listener: (details) {
-                        setState(() {
-                          print(details.x * 1000);
-                          print(details.y * 1000);
-                        });
-                      },
-                      mode: JoystickMode.vertical,
-                    ),
-                    ElevatedButton.icon(
-                      onPressed: () {},
-                      style: const ButtonStyle(
-                        backgroundColor:
-                            MaterialStatePropertyAll<Color>(Colors.blueGrey),
-                        minimumSize: MaterialStatePropertyAll(Size(75, 120)),
+                Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      ElevatedButton.icon(
+                        onPressed: () {},
+                        style: const ButtonStyle(
+                          backgroundColor:
+                              MaterialStatePropertyAll<Color>(Colors.blueGrey),
+                          minimumSize: MaterialStatePropertyAll(Size(50, 50)),
+                        ),
+                        icon: const Icon(
+                          Icons.arrow_circle_left,
+                          color: Colors.white,
+                          size: 30,
+                        ),
+                        label: const Text(
+                          "Rotate",
+                          style: TextStyle(color: Colors.white, fontSize: 15),
+                        ),
                       ),
-                      icon: const Icon(
-                        Icons.arrow_circle_left,
-                        color: Colors.white,
-                        size: 40,
+                      Joystick(
+                        listener: (details) {
+                          setState(() {
+                            double temp = details.y * 1000;
+                            if (temp > 0) {
+                              print("Down $temp");
+                            } else {
+                              print("Up $temp");
+                            }
+                          });
+                        },
+                        mode: JoystickMode.vertical,
                       ),
-                      label: const Text(
-                        "Rotate",
-                        style: TextStyle(color: Colors.white, fontSize: 20),
+                    ]),
+                Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      ElevatedButton(
+                        onPressed: () {},
+                        style: const ButtonStyle(
+                          backgroundColor:
+                              MaterialStatePropertyAll<Color>(Colors.blueGrey),
+                          minimumSize: MaterialStatePropertyAll(Size(100, 50)),
+                        ),
+                        child: const Text("Sit",
+                            style: TextStyle(color: Colors.white)),
                       ),
-                    ),
-                    ElevatedButton.icon(
-                      onPressed: () {},
-                      style: const ButtonStyle(
-                        backgroundColor:
-                            MaterialStatePropertyAll<Color>(Colors.blueGrey),
-                        minimumSize: MaterialStatePropertyAll(Size(75, 120)),
+                      ElevatedButton(
+                        onPressed: () {},
+                        style: const ButtonStyle(
+                          backgroundColor:
+                              MaterialStatePropertyAll<Color>(Colors.blueGrey),
+                          minimumSize: MaterialStatePropertyAll(Size(100, 50)),
+                        ),
+                        child: const Text("Dance",
+                            style: TextStyle(color: Colors.white)),
                       ),
-                      icon: const Icon(
-                        Icons.arrow_circle_right,
-                        color: Colors.white,
-                        size: 40,
+                    ]),
+                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => Ultrasonic(),
+                        ),
+                      );
+                    },
+                    child: const Text("Ultrasonic"),
+                  )
+                ]),
+                Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      ElevatedButton(
+                        onPressed: () {},
+                        style: const ButtonStyle(
+                          backgroundColor:
+                              MaterialStatePropertyAll<Color>(Colors.blueGrey),
+                          minimumSize: MaterialStatePropertyAll(Size(100, 50)),
+                        ),
+                        child: const Text("Stand",
+                            style: TextStyle(color: Colors.white)),
                       ),
-                      label: const Text(
-                        "Rotate",
-                        style: TextStyle(color: Colors.white, fontSize: 20),
+                      ElevatedButton(
+                        onPressed: () {},
+                        style: const ButtonStyle(
+                          backgroundColor:
+                              MaterialStatePropertyAll<Color>(Colors.blueGrey),
+                          minimumSize: MaterialStatePropertyAll(Size(100, 50)),
+                        ),
+                        child: const Text("Wave",
+                            style: TextStyle(color: Colors.white)),
                       ),
-                    ),
-                    Joystick(
-                      listener: (details) {
-                        setState(() {
-                          print(details.x * 1000);
-                          print(details.y * 1000);
-                        });
-                      },
-                      mode: JoystickMode.horizontal,
-                    )
-                  ],
-                )
-              ],
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ElevatedButton(
-                      onPressed: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) => Ultrasonic(),
-                          ),
-                        );
-                      },
-                      child: const Text("Ultrasonic"),
-                    ),
-                  ],
-                )
+                    ]),
+                Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      ElevatedButton.icon(
+                        onPressed: () {},
+                        style: const ButtonStyle(
+                          backgroundColor:
+                              MaterialStatePropertyAll<Color>(Colors.blueGrey),
+                          minimumSize: MaterialStatePropertyAll(Size(50, 50)),
+                        ),
+                        icon: const Icon(
+                          Icons.arrow_circle_right,
+                          color: Colors.white,
+                          size: 30,
+                        ),
+                        label: const Text(
+                          "Rotate",
+                          style: TextStyle(color: Colors.white, fontSize: 15),
+                        ),
+                      ),
+                      Joystick(
+                        listener: (details) {
+                          setState(() {
+                            double temp = details.x * 1000;
+                            if (temp > 0) {
+                              print("Right $temp");
+                            } else {
+                              print("Left $temp");
+                            }
+                          });
+                        },
+                        mode: JoystickMode.horizontal,
+                      )
+                    ])
               ],
             )
           ],
